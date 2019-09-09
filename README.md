@@ -9,7 +9,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Pytube.
 ```bash
 pip install pytube
 ```
-![alt text](https://github.com/JMax45/online-video-converter/blob/master/images/platforms/youtube.jpg)
+
 
 
 ## Contributing
