@@ -19,7 +19,7 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.label_4.hide()
         self.pushButton.clicked.connect(self.convert_video_start)
         self.buttonBox.accepted.connect(self.convert_video_start_download)
-        self.buttonBox.canceled.connect(self.convert_video_cancel)
+        self.buttonBox.rejected.connect(self.convert_video_cancel)
         self.toolButton.hide()
     def convert_video(self):
         video_url = self.lineEdit.text()
@@ -51,13 +51,20 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.progressBar.setProperty("value", 0)
         self.progressBar.hide()
         self.label_2.hide()
+    def convert_video_cancel(self):
+        self.buttonBox.hide()
+        self.pushButton.show()
+        self.lineEdit.setText("")
+        self.lineEdit.setReadOnly(False)
+        self.label.setText("INSERISCI IL LINK")
+        self.label.show()
+        self.label_4.hide()
+        self.label_2.hide()
     def convert_video_start_download(self):
         self.buttonBox.hide()
         self.label.setText("Downloading...")
         self.label.show()
         self.progressBar.show()
-    def convert_video_cancel(self):
-        self.buttonBox.hide()
         class YourThreadName(QThread):
             def __init__(self2):
                 QThread.__init__(self2)
